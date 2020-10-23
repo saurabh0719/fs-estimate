@@ -9,8 +9,10 @@ class Estimator{
     constructor(){}
 
     extractWords(file_path){
+        console.log("extract words function");
         const data = fs.readFileSync(file_path, {encoding:'utf8', flag: 'r'});
         let words = data.split(' ');
+        console.log(words);
         return words.length;
     }
 
