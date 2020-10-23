@@ -12,9 +12,9 @@ require('yargs')
    // console.log("We are here")
     const Estimator = require('./Estimator')
     let estimate = new Estimator();
-    let numWords = estimate.extractWords(filename);
+    let numWords = estimate.extractWords(argv.filename);
     let result = estimate.estimateReadingTime(numWords);
-    console.log("Estimated reading time : " + result);
+    console.log("Estimated reading time : " + result + " minutes.");
   })
   .help()
   .argv
