@@ -1,6 +1,6 @@
 {
   "name": "fs-estimate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "bin/index.js",
   "scripts": {
@@ -12,8 +12,8 @@
   },
   "author": "Saurabh Pujari",
   "license": "ISC",
-  "bin":{
-    "fs-estimate" : "./bin/index.js"
+  "bin": {
+    "fs-estimate": "./bin/index.js"
   },
   "bugs": {
     "url": "https://github.com/saurabh0719/time-estimator/issues"
