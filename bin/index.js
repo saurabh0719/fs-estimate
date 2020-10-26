@@ -1,5 +1,8 @@
 #!/usr/bin/env node 
 
+const JSONdb = require('simple-json-db');
+const db = new JSONdb('./settings.json');
+
 require('yargs')
   .scriptName("pirate-parser")
   .usage('$0 <cmd> [args]')
@@ -13,8 +16,21 @@ require('yargs')
     const Estimator = require('./Estimator')
     let estimate = new Estimator();
     let numWords = estimate.extractWords(argv.filename);
-    let result = estimate.estimateReadingTime(numWords);
+    let wordsPerMinute = db.get('wordsPerMinute');
+    let result = estimate.estimateReadingTime(numWords, wordsPerMinute);
     console.log("Estimated reading time : " + result + " minutes.");
+  })
+  .usage('$0 <cmd> [args]')
+  .command('set [rate]', 'Set the number of words per minute to read', (yargs) => {
+    yargs.positional('rate', {
+        type: 'number',
+        describe: 'Reading rate : Number of words per minute',
+        default : 150
+      })
+  }, function (argv) {
+   // console.log("We are here");
+   db.set('wordsPerMinute', argv.rate);
+   console.log("Words per minute set to " + argv.rate);
   })
   .help()
   .argv

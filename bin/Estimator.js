@@ -2,8 +2,6 @@
 
 const fs = require('fs');
 
-const wordsPerMinute = 150;
-
 class Estimator{
 
     constructor(){}
@@ -16,7 +14,7 @@ class Estimator{
         return words.length;
     }
 
-    estimateReadingTime(numberOfWords){
+    estimateReadingTime(numberOfWords, wordsPerMinute){
         let dec = numberOfWords/wordsPerMinute;
         return Math.round(dec);
     }
