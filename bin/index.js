@@ -12,7 +12,6 @@ require('yargs')
         describe: 'The file/file path that you want to read'
       })
   }, function (argv) {
-   // console.log("We are here")
     const Estimator = require('./Estimator')
     let estimate = new Estimator();
     let numWords = estimate.extractWords(argv.filename);
@@ -28,7 +27,6 @@ require('yargs')
         default : 150
       })
   }, function (argv) {
-   // console.log("We are here");
    db.set('wordsPerMinute', argv.rate);
    console.log("Words per minute set to " + argv.rate);
   })
